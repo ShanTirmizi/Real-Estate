@@ -1,9 +1,11 @@
 import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import './Banner.css';
+import { useHistory } from "react-router-dom";
 import FindHouses from './FindHouses/FindHouses';
 
 const Banner = () => {
+    const history = useHistory();
     const [showDates, setShowDates] = useState(false);
 
     return (
@@ -24,7 +26,7 @@ const Banner = () => {
                     Find you dream home here.
                     Find you dream
                 </h5>
-                <Button variant='outline'>
+                <Button onClick={() => history.push('/search')} variant='outline'>
                     Explore Houses
                 </Button>
             </div>
