@@ -30,7 +30,7 @@ const FindHouses = () => {
                 Number of guests <PeopleIcon />
             </h2>
             <input min={0} defaultValue={2} type="number" />
-            <Button onClick={() => history.push('/FindHouses')}>Search Airbnb</Button>
+            <Button onClick={() => history.push('/search')}>Search Airbnb</Button>
         </div>
     )
 }
