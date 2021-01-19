@@ -2,8 +2,11 @@ import React from 'react';
 import './Home.css';
 import Banner from './Banner/Banner';
 import Card from './Card/Card';
+import {data} from '../../data';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+    console.log(data);
     return (
         <div className='home'>
             <Banner />
@@ -25,7 +28,7 @@ const Home = () => {
             />
             </div>
             <div className='home__section'>
-            <Card
+            {/* <Card
                 src="https://media.nomadicmatt.com/2019/airbnb_breakup3.jpg"
                 title="3 Bedroom Flat in Bournemouth"
                 description="Superhost with a stunning view of the beachside in Sunny Bournemouth"
@@ -42,7 +45,25 @@ const Home = () => {
                 title="1 Bedroom apartment"
                 description="Superhost with great amenities and a fabolous shopping complex nearby"
                 price="£70/night"
-            />
+            /> */}
+
+            {
+                data.products.map(house => {
+                    return (
+                        <>
+                        <Link to={`/search/${house._id}`}>
+                        <Card 
+                            key ={house._id}
+                            src={house.image}
+                            title={house.name}
+                            description={house.description}
+                            price={house.price}
+                        />
+                        </Link>
+                        </>
+                    )
+                })
+            }
             </div>
         </div>
     )
